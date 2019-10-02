@@ -13,6 +13,14 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
+app.get('/about', function(request, response) { // when the user navigates to the endpoint /about
+  response.render('pages/about'); // render about.ejs
+});
+
+app.get('/projects', function(request, response) { // when the user navigates to the endpoint /projects
+  response.render('pages/projects'); // render projects.ejs
+});
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
