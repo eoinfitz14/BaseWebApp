@@ -1,3 +1,7 @@
+$(document).ready(function(){
+  getPosts();
+})
+
 function handleSignIn(){
   var provider = new firebase.auth.GoogleAuthProvider();
 
@@ -52,4 +56,13 @@ function handleMessageFormSubmit(){
   console.log("This is the post body: " + postBody);
   addMessage(postTitle,postBody);
 
+}
+
+function getPosts(){
+
+  return firebase.database().ref("posts").once('value').then(function(snapshot) {
+    var posts = snapshot.val();
+    console.log(posts);
+    // ...
+  });
 }
