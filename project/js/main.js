@@ -6,7 +6,7 @@ function handleSignIn(){
     var token = result.credential.accessToken;
     // The signed-in user info.
     var user = result.user;
-    console.log(user.email);
+    console.log("Email console.log: " + user.email);
     // ...
   }).catch(function(error) {
     // Handle Errors here.
@@ -18,7 +18,13 @@ function handleSignIn(){
     var credential = error.credential;
     // ...
   });
-
-
 }
 
+function handleMessageFormSubmit(){
+  // grab values from index.ejs
+  var postTitle = $("#post-title").val();
+  var postBody = $("#post-body").val();
+  console.log("This is the post title: " + postTitle);
+  console.log("This is the post body: " + postBody);
+
+}
