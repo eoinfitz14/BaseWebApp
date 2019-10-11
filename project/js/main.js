@@ -24,7 +24,7 @@ function handleMessageFormSubmit(){
   // grab values from index.ejs
   var postTitle = $("#post-title").val();
   var postBody = $("#post-body").val();
-  console.log("This is the post title: " + postTitle);
+  console.log(postTitle);
   console.log("This is the post body: " + postBody);
 
 }
