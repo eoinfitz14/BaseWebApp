@@ -65,7 +65,7 @@ function getPosts(){
     console.log(posts);
     
     for(var postKey in posts){
-      var post = posts(postKey);
+      var post = posts[postKey];
       // now target div in index.ejs to display the post variable
       $("#post-listing").append("<div>"+post.title+" - "+post.body+"</div>");
     }
