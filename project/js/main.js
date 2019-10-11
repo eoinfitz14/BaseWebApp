@@ -63,6 +63,11 @@ function getPosts(){
   return firebase.database().ref("posts").once('value').then(function(snapshot) {
     var posts = snapshot.val();
     console.log(posts);
-    // ...
+    
+    for(var postKey in posts){
+      var post = posts(postKey);
+      // now target div in index.ejs to display the post variable
+      $("#post-listing").append("<div>"+post.title+" - "+post.body+"</div>");
+    }
   });
 }
