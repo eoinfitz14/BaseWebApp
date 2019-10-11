@@ -29,7 +29,19 @@ function addMessage(postTitle,postBody){
   var database = firebase.database().ref("posts");
 
   var newPostRef = database.push();
-  newPostRef.set(postData);
+
+  // function below was just: newPostRef.set(postData); but then added callback
+  // CALLBACKS ARE NB. Used to make something happen after a function is completed 
+  // i.e clear input fields after submit is clicked
+  newPostRef.set(postData, function(error) {
+    if (error) {
+      // The write failed... e.g for here is display error message on screen 
+    } else {
+      // Data saved successfully!
+      window.location.reload();
+    }
+  });
+  
 }
 
 function handleMessageFormSubmit(){
