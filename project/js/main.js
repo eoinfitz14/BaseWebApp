@@ -20,11 +20,24 @@ function handleSignIn(){
   });
 }
 
+function addMessage(postTitle,postBody){
+  var postData = {
+    title: postTitle,
+    body: postBody
+  }
+  // Get a reference to the database service
+  var database = firebase.database().ref("posts");
+
+  var newPostRef = database.push();
+  newPostRef.set(postData);
+}
+
 function handleMessageFormSubmit(){
   // grab values from index.ejs
   var postTitle = $("#post-title").val();
   var postBody = $("#post-body").val();
-  console.log(postTitle);
+  console.log("This is the post title: " + postTitle);
   console.log("This is the post body: " + postBody);
+  addMessage(postTitle,postBody);
 
 }
